@@ -1,0 +1,35 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Segoe UI', Tahoma, sans-serif; 
+  line-height: 1.6; 
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+  padding: 20px; 
+  min-height: 100vh;
+}
+header { 
+  text-align: center; 
+  background: white; 
+  padding: 40px 20px; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+  margin-bottom: 30px; 
+}
+header h1 { color: #1e3a8a; font-size: 2.5em; margin-bottom: 10px; }
+header p { color: #64748b; font-size: 1.2em; }
+.services, .contact { 
+  background: white; 
+  padding: 30px; 
+  border-radius: 12px; 
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+  margin-bottom: 20px; 
+}
+h2 { color: #1e3a8a; margin-bottom: 20px; font-size: 1.8em; }
+#excel-table { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
+th { background: #1e40af; color: white; font-weight: 600; }
+tr:hover { background: #f8fafc; }
+@media (max-width: 768px) { 
+  body { padding: 10px; } 
+  header h1 { font-size: 2em; } 
+}
