@@ -2,34 +2,141 @@
 body { 
   font-family: 'Segoe UI', Tahoma, sans-serif; 
   line-height: 1.6; 
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+  background: #0f0f23; /* Deep space blue */
+  color: #e2e8f0;
   padding: 20px; 
   min-height: 100vh;
 }
+
+/* Hero Header - Gold accent */
 header { 
   text-align: center; 
-  background: white; 
-  padding: 40px 20px; 
-  border-radius: 12px; 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
-  margin-bottom: 30px; 
+  background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #1e40af 100%);
+  padding: 60px 20px; 
+  border-radius: 20px; 
+  box-shadow: 0 20px 40px rgba(30, 58, 138, 0.4);
+  margin-bottom: 40px; 
+  position: relative;
+  overflow: hidden;
 }
-header h1 { color: #1e3a8a; font-size: 2.5em; margin-bottom: 10px; }
-header p { color: #64748b; font-size: 1.2em; }
+header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,215,0,0.1) 0%, transparent 70%);
+  animation: shimmer 6s infinite;
+}
+@keyframes shimmer {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(180deg); }
+}
+header h1 { 
+  color: #ffd700; /* Gold */
+  font-size: 3.2em; 
+  margin-bottom: 15px; 
+  text-shadow: 0 0 20px rgba(255,215,0,0.5);
+  position: relative;
+  z-index: 1;
+}
+header p { 
+  color: #bfdbfe; 
+  font-size: 1.3em; 
+  position: relative;
+  z-index: 1;
+}
+
+/* Glassmorphism cards */
 .services, .contact { 
-  background: white; 
-  padding: 30px; 
-  border-radius: 12px; 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
-  margin-bottom: 20px; 
+  background: rgba(15, 23, 42, 0.8); 
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 40px; 
+  border-radius: 24px; 
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+  margin-bottom: 30px; 
+  transition: all 0.4s ease;
 }
-h2 { color: #1e3a8a; margin-bottom: 20px; font-size: 1.8em; }
-#excel-table { overflow-x: auto; }
-table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #e2e8f0; }
-th { background: #1e40af; color: white; font-weight: 600; }
-tr:hover { background: #f8fafc; }
+.services:hover, .contact:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 35px 70px rgba(59, 130, 246, 0.3);
+}
+
+/* Section titles */
+h2 { 
+  color: #60a5fa; 
+  margin-bottom: 25px; 
+  font-size: 2.2em; 
+  position: relative;
+}
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #f59e0b);
+  border-radius: 2px;
+}
+
+/* Pro Excel Table */
+#excel-table { overflow-x: auto; border-radius: 16px; }
+table { 
+  width: 100%; 
+  border-collapse: separate; 
+  border-spacing: 0;
+  margin-top: 20px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+th { 
+  background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+  color: #ffffff; 
+  padding: 18px 20px; 
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: sticky; top: 0;
+}
+td { 
+  padding: 16px 20px; 
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  transition: background 0.3s;
+}
+tr:hover td { 
+  background: rgba(59, 130, 246, 0.2);
+  transform: scale(1.01);
+}
+tr:last-child td { border-bottom: none; }
+
+/* Contact styling */
+.contact p {
+  font-size: 1.2em;
+  line-height: 1.8;
+}
+.contact strong {
+  color: #ffd700;
+}
+
+/* Responsive */
 @media (max-width: 768px) { 
-  body { padding: 10px; } 
-  header h1 { font-size: 2em; } 
+  body { padding: 15px; } 
+  header h1 { font-size: 2.4em; }
+  header p { font-size: 1.1em; }
+  .services, .contact { padding: 25px; margin-bottom: 20px; }
+}
+
+/* WhatsApp button */
+header p a {
+  color: #25D366;
+  text-decoration: none;
+  font-weight: bold;
+}
+header p a:hover {
+  text-shadow: 0 0 10px #25D366;
 }
